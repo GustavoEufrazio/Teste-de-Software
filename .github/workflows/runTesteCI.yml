@@ -1,4 +1,4 @@
-name: Teste de Integra
+name: Teste de Integração
 
 on:
   push:
@@ -14,11 +14,17 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Instalar compilador C
-        run: sudo apt-get update && sudo apt-get install -y build-essential
+      - name: Configurar MinGW
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: mingw-w64-x86_64-gcc
 
       - name: Compilar o projeto
-        run: gcc -Wall -Wextra -O2 arquivoTeste.c -o programa
+        shell: msys2 {0}
+        run: gcc -Wall -Wextra -O2 arquivoTeste.c -o programa.exe
 
       - name: Executar o programa compilado
-        run: ./programa
+        shell: msys2 {0}
+        run: ./programa.exe
