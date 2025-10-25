@@ -8,23 +8,41 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Configurar MinGW
+      - name: Instalar dependências e compilar
+        if: runner.os == 'Windows'
         uses: msys2/setup-msys2@v2
         with:
           msystem: MINGW64
           update: true
           install: mingw-w64-x86_64-gcc
 
-      - name: Compilar o projeto
+      - name: Compilar no Windows
+        if: runner.os == 'Windows'
         shell: msys2 {0}
         run: gcc -Wall -Wextra -O2 arquivoTeste.c -o programa.exe
 
-      - name: Executar o programa compilado
+      - name: Executar programa no Windows
+        if: runner.os == 'Windows'
         shell: msys2 {0}
         run: ./programa.exe
+
+      - name: Instalar GCC no Ubuntu
+        if: runner.os == 'Linux'
+        run: sudo apt update && sudo apt install -y gcc
+
+      - name: Compilar no Ubuntu
+        if: runner.os == 'Linux'
+        run: gcc -Wall -Wextra -O2 arquivoTeste.c -o programa
+
+      - name: Executar programa no Ubuntu
+        if: runner.os == 'Linux'
+        run: ./programa
