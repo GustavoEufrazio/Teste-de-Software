@@ -24,7 +24,7 @@ MU_TEST(test_calculaIngressos){
 
 MU_TEST(test_entrada){
     criaArquivoEntrada(4);
-    mu_check(4 ==entrada_teste(4));
+    mu_check(4 ==entrada_teste());
 
 
 }
