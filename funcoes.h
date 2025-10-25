@@ -1,10 +1,10 @@
 int entradaIngressos_teste(int tam){
     FILE *file;
     file = fopen("idades.txt","r");
-    int valor[tam];
+    int valor;
 
     for(int i=0;i<tam;i++){
-        if (fscanf(file, "%d", &valor[i]) == 1) {
+        if (fscanf(file, "%d", &valor) == 1) {
         }else{
             printf("\nErro ao ler o número [%d]",i);
             return 1; // falso
@@ -74,7 +74,6 @@ int *entradaIngressos(int ingressos[],int tam){
         printf("\nInforme a idade do ingresso Nº %d: ",i+1);
         scanf("%d", &ingressos[i]);
         }while(ingressos[i]>100 || ingressos[i]<0);
-        //Duvida01: do while pode se configurar com teste unitário, no caso dos scanf? Mesmo que sem ser automtizado
     }
     return ingressos;
 }
