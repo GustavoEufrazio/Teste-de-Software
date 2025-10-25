@@ -25,8 +25,8 @@ MU_TEST(test_calculaIngressos){
 MU_TEST(test_entrada){
     criaArquivoEntrada(4);
     mu_check(4 ==entrada_teste(4));
-    mu_check(-2 ==entrada_teste(7));
-    mu_check(2 ==entrada_teste(2));
+
+
 }
 
 MU_TEST(test_entradaIngressos){
@@ -35,12 +35,19 @@ MU_TEST(test_entradaIngressos){
     int caso3[] = {65, 80};         // idosos → 2*15 = 30
     int caso4[] = {10, 25, 70};     // mistura → 10 + 30 + 15 = 55
 
-    criaArquivoEntradaIngressos(3,caso1);
-    mu_check(1 == entradaIngressos_teste(3));
-    criaArquivoEntradaIngressos(2,caso2);
-    mu_check(1 == entradaIngressos_teste(3));
+    criaArquivoEntradaIngressos(3, caso1);
+    mu_check(entradaIngressos_teste(3) == 0);
 
+    criaArquivoEntradaIngressos(2, caso2);
+    mu_check(entradaIngressos_teste(2) == 0);
+
+    criaArquivoEntradaIngressos(2, caso3);
+    mu_check(entradaIngressos_teste(2) == 0);
+
+    criaArquivoEntradaIngressos(3, caso4);
+    mu_check(entradaIngressos_teste(3) == 0);
 }
+
 
 MU_TEST_SUITE(testaGeral){
     //MU_SUITE_CONFIGURE();

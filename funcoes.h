@@ -7,11 +7,11 @@ int entradaIngressos_teste(int tam){
         if (fscanf(file, "%d", &valor[i]) == 1) {
         }else{
             printf("\nErro ao ler o número [%d]",i);
-            return 0; // falso
+            return 1; // falso
         }
     }
     fclose(file);
-    return 1; //verdadeiro
+    return 0; //verdadeiro
 }
 
 void criaArquivoEntradaIngressos(int tam, int vetor[tam]){
@@ -50,19 +50,19 @@ int entrada_teste(){
 
     if (!file) {
         perror("Erro ao abrir arquivo");
-        return -1;
+        return 1;
     }
 
     if (fscanf(file, "%d", &qtdBi) != 1) {
         fclose(file);
         printf("\nErro ao ler número do arquivo.\n");
-        return -1;
+        return 1;
     }
     fclose(file);
     if(qtdBi>5){
         printf("\n%d",qtdBi);
         printf("\nQuantidade superior a 5, que é quantidade máxima permitida.\n");
-        return -2;
+        return 1;
     }
     return qtdBi;
 }
