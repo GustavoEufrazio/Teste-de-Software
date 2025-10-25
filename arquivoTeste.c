@@ -50,7 +50,6 @@ MU_TEST(test_entradaIngressos){
 
 
 MU_TEST_SUITE(testaGeral){
-    //MU_SUITE_CONFIGURE();
     MU_RUN_TEST(test_calculaIngressos);
     MU_RUN_TEST(test_entrada);
     MU_RUN_TEST(test_entradaIngressos);
