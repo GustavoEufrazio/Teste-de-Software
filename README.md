@@ -124,6 +124,6 @@ Inclua no topo do seu README para mostrar o status do workflow:
     └── workflows/
         └── teste-integracao.yml
 
-## 📋 Segue abaixo as evidências dos teste, caso necessário também é possível acessar via Actions, no menu do repositório
+## 📋 Segue abaixo a evidência dos testes, caso necessário também é possível acessar via Actions, no menu do repositório
 
 <img width="1919" height="825" alt="image" src="https://github.com/user-attachments/assets/d4c121d3-ee37-4639-ae34-d2a02daf9ae4" />
