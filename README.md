@@ -106,24 +106,6 @@ Executa o binário gerado em cada sistema operacional. Pode ser adaptado para in
 
 ---
 
-## 🏷️ Badge de Status
-
-Inclua no topo do seu README para mostrar o status do workflow:
-
-```
-![Status do Build](https://github.com/usuario/repo/actions/workflows/teste-integracao
-
-## 📁 Estrutura sugerida do projeto
-
-```
-/
-├── arquivoTeste.c
-├── programa.exe (gerado no Windows)
-├── programa (gerado no Ubuntu)
-└── .github/
-    └── workflows/
-        └── teste-integracao.yml
-
 ## 📋 Segue abaixo a evidência dos testes, caso necessário também é possível acessar via Actions, no menu do repositório
 
 <img width="1919" height="825" alt="image" src="https://github.com/user-attachments/assets/d4c121d3-ee37-4639-ae34-d2a02daf9ae4" />
